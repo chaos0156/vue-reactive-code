@@ -8,21 +8,29 @@
 </head>
 <body>
     <div id="app">
-        <h2>
-            我的名字叫做：{{ name }}
-        </h2>
-        <h3>
-            我的年龄是：{{age}}
-        </h3>
+        <h2>我的名字叫做：{{ name }}</h2>
+        <h2>我的年龄是：{{age}}</h2>
+        <h2>我的地址是： {{info.address}}</h2>
+        <h2>我的邮箱是：{{info.email}}</h2>
+
+        我的新邮箱是：<input type="text" v-model="info.email">
+        <hr>
+        我的新名字是：<input type="text" v-model="name">
     </div>
+    <script src="vue.js"></script>
     <script>
         let vm  = new Vue({
             el:'#app',
             data:{
                 name:'who am i',
-                age:10
+                age:10,
+                info:{
+                    address:'nj',
+                    email:'123@123.com'
+                }
             }
         })
+        console.log(vm);
     </script>
 
 

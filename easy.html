@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn" style="display: block;">点击我更新视图</button>
+    <input type="text" id="app">
+    <div id="box"></div>
+    <script>
+        const app = document.getElementById('app')
+        const box = document.getElementById('box')
+        const btn = document.getElementById('btn')
+        const obj = {}
+        Object.defineProperty(obj, 'value', {
+            enumerable: true,
+            configurable: true,
+            set(newVal) {
+                app.value = newVal
+                box.innerHTML = newVal
+            }
+        })
+        app.addEventListener('input', (e) => {
+            obj.value = e.target.value
+        })
+        btn.addEventListener('click', () => {
+            setTimeout(() => {
+                obj.value = 'chaos'
+            }, 3000)
+        })
+    </script>
+</body>
+
+</html>
